@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 interface ColProps extends StyledProps {
   center?: boolean;
-  children: ReactNode;
+  children?: ReactNode;
 }
 export function Col(props: ColProps) {
   const { children, center = false } = props;
