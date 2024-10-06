@@ -19,11 +19,11 @@ function useBroadcastChannel(channelName = "test-channnel") {
   return bc;
 }
 
-export function useBroadcast(channelName?: string) {
+export function useBroadcast<T>(channelName?: string) {
   const bc = useBroadcastChannel(channelName);
 
   const broadcast = useCallback(
-    (message: string) => {
+    (message: T) => {
       if (bc) {
         bc.postMessage(message);
       } else {
@@ -39,10 +39,7 @@ export function useBroadcast(channelName?: string) {
   return broadcast;
 }
 
-export function useReceive(
-  fn: (message: string) => void,
-  channelName?: string
-) {
+export function useReceive<T>(fn: (message: T) => void, channelName?: string) {
   const bc = useBroadcastChannel(channelName);
 
   const listener = useCallback(

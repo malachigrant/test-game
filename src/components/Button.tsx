@@ -3,7 +3,7 @@ import { resolveStyles, StyledProps } from "@/util/StyleUtil";
 
 interface ButtonProps extends StyledProps {
   text: string;
-  onClick: () => void;
+  onClick?: () => void;
   disabled?: boolean;
 }
 

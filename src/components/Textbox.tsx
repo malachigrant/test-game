@@ -4,7 +4,7 @@ import { ChangeEvent, useCallback } from "react";
 
 interface TextboxProps extends StyledProps {
   text: string;
-  onChange: (text: string) => void;
+  onChange?: (text: string) => void;
   disabled?: boolean;
 }
 
@@ -13,7 +13,9 @@ export function Textbox(props: TextboxProps) {
 
   const changeHandler = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      onChange(e.target.value);
+      if (onChange) {
+        onChange(e.target.value);
+      }
     },
     [onChange]
   );

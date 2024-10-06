@@ -1,0 +1,35 @@
+{
+  "layout": {
+    "txt": {
+      "id": "txt",
+      "type": "textbox",
+      "text": "clicked {{state::x}} times",
+      "position": {
+        "x": "50",
+        "y": "50"
+      }
+    },
+    "button": {
+      "id": "button",
+      "type": "button",
+      "text": "Click me",
+      "position": {
+        "x": "100",
+        "y": "50"
+      },
+      "logic": [
+        {
+          "action": "set",
+          "variable": "x",
+          "value": {
+            "operator": "+",
+            "values": [1, { "action": "get", "variable": "x" }]
+          }
+        }
+      ]
+    }
+  },
+  "state": {
+    "x": 0
+  }
+}
